@@ -4,7 +4,10 @@ import fs from "fs-extra";
 import { PKG_ROOT } from "../consts.js";
 import { runPkgManagerInstall } from "../utils/runPkgManagerInstall.js";
 
-export const trpcInstaller: Installer = async (projectDir, packageManager) => {
+export const chakraInstaller: Installer = async (
+  projectDir,
+  packageManager,
+) => {
   await runPkgManagerInstall({
     packageManager,
     projectDir,

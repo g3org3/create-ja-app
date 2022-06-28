@@ -12,14 +12,23 @@ export const selectAppFile = async (
 
   const usingTrpc = packages.trpc.inUse;
   const usingNextAuth = packages.nextAuth.inUse;
+  const usingChakra = packages.chakra.inUse;
 
   let appFile = "";
-  if (usingNextAuth && usingTrpc) {
+  if (usingNextAuth && usingTrpc && usingChakra) {
+    appFile = "with-auth-trpc-chakra.tsx";
+  } else if (usingNextAuth && usingTrpc && !usingChakra) {
     appFile = "with-auth-trpc.tsx";
-  } else if (usingNextAuth && !usingTrpc) {
+  } else if (usingNextAuth && !usingTrpc && usingChakra) {
+    appFile = "with-auth-chakra.tsx";
+  } else if (usingNextAuth && !usingTrpc && !usingChakra) {
     appFile = "with-auth.tsx";
-  } else if (!usingNextAuth && usingTrpc) {
+  } else if (!usingNextAuth && usingTrpc && usingChakra) {
+    appFile = "with-trpc-chakra.tsx";
+  } else if (!usingNextAuth && usingTrpc && !usingChakra) {
     appFile = "with-trpc.tsx";
+  } else if (!usingNextAuth && !usingTrpc && usingChakra) {
+    appFile = "with-chakra.tsx";
   }
 
   if (appFile !== "") {

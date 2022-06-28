@@ -1,4 +1,5 @@
 import type { PackageManager } from "../utils/getUserPkgManager.js";
+import { chakraInstaller } from "./chakra.js";
 import { nextAuthInstaller } from "./next-auth.js";
 import { prismaInstaller } from "./prisma.js";
 import { tailwindInstaller } from "./tailwind.js";
@@ -11,6 +12,7 @@ export const availablePackages = [
   "prisma",
   "tailwind",
   "trpc",
+  "chakra",
 ] as const;
 
 export type AvailablePackages = typeof availablePackages[number];
@@ -46,5 +48,9 @@ export const buildPkgInstallerMap = (
   trpc: {
     inUse: packages.includes("trpc"),
     installer: trpcInstaller,
+  },
+  chakra: {
+    inUse: packages.includes("chakra"),
+    installer: chakraInstaller,
   },
 });
