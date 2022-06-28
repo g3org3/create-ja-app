@@ -2,7 +2,7 @@ import type { AvailablePackages } from "../installers/index.js";
 import chalk from "chalk";
 import { Command } from "commander";
 import inquirer from "inquirer";
-import { CREATE_T3_APP, DEFAULT_APP_NAME } from "../consts.js";
+import { CREATE_JA_APP, DEFAULT_APP_NAME } from "../consts.js";
 import { availablePackages } from "../installers/index.js";
 import { getVersion } from "../utils/getT3Version.js";
 import { logger } from "../utils/logger.js";
@@ -33,7 +33,7 @@ const defaultOptions: CliResults = {
 export const runCli = async () => {
   const cliResults = defaultOptions;
 
-  const program = new Command().name(CREATE_T3_APP);
+  const program = new Command().name(CREATE_JA_APP);
 
   // TODO: This doesn't return anything typesafe. Research other options?
   // Emulate from: https://github.com/Schniz/soundtype-commander
@@ -60,7 +60,7 @@ export const runCli = async () => {
     // )
     .option(
       "-y, --default",
-      "Bypass the CLI and use all default options to bootstrap a new t3-app",
+      "Bypass the CLI and use all default options to bootstrap a new ja-app",
       false,
     )
     .version(getVersion(), "-v, --version", "Display the version number")
@@ -131,12 +131,12 @@ export const runCli = async () => {
       cliResults.packages = packages;
     }
   } catch (err) {
-    // If the user is not calling create-t3-app from an interactive terminal, inquirer will throw an error with isTTYError = true
+    // If the user is not calling create-ja-app from an interactive terminal, inquirer will throw an error with isTTYError = true
     // If this happens, we catch the error, tell the user what has happened, and then contiue to run the program with a default t3 app
     // eslint-disable-next-line -- Otherwise we have to do some fancy namespace extension logic on the Error type which feels overkill for one line
     if (err instanceof Error && (err as any).isTTYError) {
       logger.warn(
-        `${CREATE_T3_APP} needs an interactive terminal to provide options`,
+        `${CREATE_JA_APP} needs an interactive terminal to provide options`,
       );
       logger.info(`Bootsrapping a default t3 app in ./${cliResults.appName}`);
     } else {

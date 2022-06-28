@@ -1,18 +1,16 @@
 {
-  "name": "create-t3-app",
-  "version": "4.2.1",
-  "description": "Create web application with the t3 stack",
-  "author": "Shoubhit Dash <shoubhit2005@gmail.com>",
+  "name": "create-ja-app",
+  "version": "1.0.0",
+  "description": "Create web application with the ja stack",
+  "author": "George <7jagjag@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nexxeln/create-t3-app.git"
+    "url": "https://github.com/g3org3/create-ja-app.git"
   },
   "keywords": [
-    "create-t3-app",
-    "init.tips",
-    "next.js",
-    "t3-stack",
+    "create-ja-app",
+    "chakra-ui",
     "tailwind",
     "tRPC",
     "typescript"
@@ -20,7 +18,7 @@
   "type": "module",
   "exports": "./dist/index.js",
   "bin": {
-    "create-t3-app": "./dist/index.js"
+    "create-ja-app": "./dist/index.js"
   },
   "engines": {
     "node": ">=14.16"
