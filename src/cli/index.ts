@@ -4,7 +4,7 @@ import { Command } from "commander";
 import inquirer from "inquirer";
 import { CREATE_JA_APP, DEFAULT_APP_NAME } from "../consts.js";
 import { availablePackages } from "../installers/index.js";
-import { getVersion } from "../utils/getT3Version.js";
+import { getVersion } from "../utils/getVersion.js";
 import { logger } from "../utils/logger.js";
 import { validateAppName } from "../utils/validateAppName.js";
 
@@ -66,13 +66,13 @@ export const runCli = async () => {
     .version(getVersion(), "-v, --version", "Display the version number")
     .addHelpText(
       "afterAll",
-      `\n The t3 stack was inspired by ${chalk
+      `\n The ja stack was inspired by ${chalk
         .hex("#E8DCFF")
         .bold(
-          "@t3dotgg",
+          "@g3org3",
         )} and has been used to build awesome fullstack applications like ${chalk
         .hex("#E24A8D")
-        .underline("https://ping.gg")} \n`,
+        .underline("https://jorgeadolfo.com")} \n`,
     )
     .parse(process.argv);
 
@@ -138,7 +138,7 @@ export const runCli = async () => {
       logger.warn(
         `${CREATE_JA_APP} needs an interactive terminal to provide options`,
       );
-      logger.info(`Bootsrapping a default t3 app in ./${cliResults.appName}`);
+      logger.info(`Bootsrapping a default ja app in ./${cliResults.appName}`);
     } else {
       throw err;
     }
